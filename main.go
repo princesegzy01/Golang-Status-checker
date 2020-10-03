@@ -31,7 +31,7 @@ type IPage struct {
   UpdatedAt string `json:"updated_at"`
 }
 func main() {
-  fmt.Println("Hello World")
+  fmt.Println("Starting Web server")
 
   // Get the url endpoint
   url := "https://kctbh9vrtdwd.statuspage.io/api/v2/status.json"
@@ -58,7 +58,7 @@ func main() {
   jsonBody := Response{}
 
   err3 := json.Unmarshal(body, &jsonBody)
-  
+
   // Check if error first
   // Then process it
   if err3 != nil {
@@ -67,7 +67,6 @@ func main() {
   }  
   updatedAt := jsonBody.Page.UpdatedAt
   githubHealth := jsonBody.Status.Indicator
-  fmt.Println(githubHealth)
 
   responseObject := map[string] interface{} {
     "Github_health" : githubHealth,
