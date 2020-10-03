@@ -55,11 +55,10 @@ func main() {
     return
   }
 
-  //fmt.Println(string(body))
-
   jsonBody := Response{}
 
   err3 := json.Unmarshal(body, &jsonBody)
+  
   // Check if error first
   // Then process it
   if err3 != nil {
